@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://skincareexpertise.com/');
+  await page.locator('#menu-item-417').getByRole('link', { name: 'Make Up' }).click();
+  await page.getByRole('link', { name: 'Cultural Fusion Aesthetic' }).click();
+  await page.getByRole('link', { name: 'Contact' }).click();
+  await page.getByLabel('Name *').click();
+  await page.getByLabel('Name *').fill('sameertesting');
+  await page.getByLabel('Name *').press('ControlOrMeta+a');
+  await page.getByLabel('Name *').press('ControlOrMeta+c');
+  await page.getByLabel('Name *').press('Tab');
+  await page.getByLabel('Email *').fill('sameertesting@yopmail.com');
+  await page.getByLabel('Email *').press('Tab');
+  await page.getByLabel('Email *').click();
+  await page.getByRole('link', { name: 'sameertesting@ymail.com' }).click();
+  await page.getByLabel('Subject *').click();
+  await page.getByLabel('Subject *').fill('sdfdsfdsf');
+  await page.getByLabel('Subject *').press('Tab');
+  await page.getByLabel('Message').fill('Hello this is testing');
+  await page.getByLabel('Email *').click();
+  await page.getByLabel('Email *').press('ControlOrMeta+ArrowLeft');
+  await page.getByLabel('Email *').press('ControlOrMeta+ArrowLeft');
+  await page.getByLabel('Email *').press('ControlOrMeta+ArrowLeft');
+  await page.getByLabel('Email *').press('ControlOrMeta+Shift+ArrowRight');
+  await page.getByLabel('Email *').fill('sameertesting@gmail.com');
+  await page.getByLabel('Message').click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByText('Thanks for contacting us! We').click();
+  await page.getByRole('link', { name: 'Skincare Expertise Logo' }).click();
+});
